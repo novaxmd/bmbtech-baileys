@@ -1,5 +1,5 @@
 {
-  "name": "bmbsession-baileys",
+  "name": "bmbtech-baileys",
   "type": "module",
   "version": "1.0.0",
   "description": "WhatsApp API Enhancement \u2014 fork of Baileys, maintained by novaxmd",
@@ -15,19 +15,19 @@
     "bails",
     "automation"
   ],
-  "homepage": "https://github.com/novaxmd/bmbsession-baileys",
+  "homepage": "https://github.com/novaxmd/bmbtech-baileys",
   "repository": {
-    "url": "git+https://github.com/novaxmd/bmbsession-baileys.git"
+    "url": "git+https://github.com/novaxmd/bmbtech-baileys.git"
   },
   "bugs": {
-    "url": "https://github.com/novaxmd/bmbsession-baileys/issues"
+    "url": "https://github.com/novaxmd/bmbtech-baileys/issues"
   },
   "license": "MIT",
   "author": "novaxmd",
   "contributors": [
     {
       "name": "Bmbtech",
-      "url": "https://github.com/novaxmd/bmbsession-baileys"
+      "url": "https://github.com/novaxmd/bmbtech-baileys"
     },
     {
       "name": "Rajeh Taher",
