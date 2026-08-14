@@ -4,9 +4,9 @@ If you find this project helpful, consider [following me on GitHub](https://gith
 
 <div align="center">
 
-[![npm version](https://img.shields.io/npm/v/bmbtech-baileys.svg?style=for-the-badge)](https://www.npmjs.com/package/bmbtech-baileys)
+[![npm version](https://img.shields.io/npm/v/bmbxmd-baileys.svg?style=for-the-badge)](https://www.npmjs.com/package/bmbtech-baileys)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
-[![npm downloads](https://img.shields.io/npm/dm/bmbtech-baileys.svg?style=for-the-badge)](https://www.npmjs.com/package/bmbtech-baileys)
+[![npm downloads](https://img.shields.io/npm/dm/bmbxmd-baileys.svg?style=for-the-badge)](https://www.npmjs.com/package/bmbxmd-baileys)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?style=for-the-badge&logo=github)](https://github.com/novaxmd/Baileys)
 [![Node](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen?style=for-the-badge)](https://nodejs.org)
 
@@ -15,7 +15,6 @@ If you find this project helpful, consider [following me on GitHub](https://gith
 A professionally enhanced, feature-rich fork of the Baileys WhatsApp Web API. Built for developers who need robust, stable WhatsApp automation with LID identity mapping, AI group support, interoperability, extended message types, and improved connection handling.
 
 **Maintainer:** bmbtech
-**bmbtech hosting** bmbtech.zone.id
 
 ---
 
@@ -142,7 +141,7 @@ npm install github:novaxmd/Baileys
 ```json
 {
  "dependencies": {
- "@whiskeysockets/baileys": "npm:bmbtech-baileys@latest"
+ "@whiskeysockets/baileys": "npm:bmbxmd-baileys@latest"
  }
 }
 ```
@@ -155,7 +154,7 @@ npm install github:novaxmd/Baileys
 <summary>Basic Connection (QR Code)</summary>
 
 ```javascript
-import makeWASocket, { useMultiFileAuthState, DisconnectReason } from 'bmbtech-baileys';
+import makeWASocket, { useMultiFileAuthState, DisconnectReason } from 'bmbxmd-baileys';
 import { Boom } from '@hapi/boom';
 
 async function connectToWhatsApp() {
@@ -189,7 +188,7 @@ connectToWhatsApp().catch(console.error);
 <summary>Pairing Code (no QR)</summary>
 
 ```javascript
-import makeWASocket, { useMultiFileAuthState } from 'bmbtech-baileys';
+import makeWASocket, { useMultiFileAuthState } from 'bmbxmd-baileys';
 
 async function connectWithPairing() {
  const { state, saveCreds } = await useMultiFileAuthState('auth_info_baileys');
@@ -215,7 +214,7 @@ connectWithPairing().catch(console.error);
 <summary>Full Socket Configuration</summary>
 
 ```javascript
-import makeWASocket, { Browsers, makeCacheableSignalKeyStore } from 'bmbtech-baileys';
+import makeWASocket, { Browsers, makeCacheableSignalKeyStore } from 'bmbxmd-baileys';
 import NodeCache from '@cacheable/node-cache';
 
 const groupCache = new NodeCache({ stdTTL: 300, useClones: false });
@@ -247,7 +246,7 @@ sock.ev.on('groups.update', async ([event]) => {
 <summary>Multi-File Auth (Development)</summary>
 
 ```javascript
-import makeWASocket, { useMultiFileAuthState } from 'bmbtech-baileys';
+import makeWASocket, { useMultiFileAuthState } from 'bmbxmd-baileys';
 
 const { state, saveCreds } = await useMultiFileAuthState('./auth_info');
 const sock = makeWASocket({ auth: state });
@@ -259,7 +258,7 @@ sock.ev.on('creds.update', saveCreds);
 <summary>Custom Database Auth (Production)</summary>
 
 ```javascript
-import makeWASocket, { makeCacheableSignalKeyStore } from 'bmbtech-baileys';
+import makeWASocket, { makeCacheableSignalKeyStore } from 'bmbxmd-baileys';
 
 const myAuthState = {
  creds: await db.getAuthCreds(),
@@ -346,7 +345,7 @@ type LIDMapping = { lid: string; pn: string }
 ### Live Integration Example
 
 ```javascript
-import makeWASocket, { useMultiFileAuthState, makeCacheableSignalKeyStore } from 'bmbtech-baileys';
+import makeWASocket, { useMultiFileAuthState, makeCacheableSignalKeyStore } from 'bmbxmd-baileys';
 
 const { state, saveCreds } = await useMultiFileAuthState('./Session');
 const lidPhoneCache = new Map();
@@ -564,7 +563,7 @@ await sock.optInIntegrators([12]);
 ### Running a USync Query
 
 ```javascript
-import { USyncQuery, USyncUser } from 'bmbtech-baileys';
+import { USyncQuery, USyncUser } from 'bmbxmd-baileys';
 
 const query = new USyncQuery()
  .withContext('interactive')
@@ -583,7 +582,7 @@ console.log(result);
 For structured server queries, this fork exposes `executeWMexQuery` — a GraphQL-style query executor over WhatsApp's `w:mex` IQ namespace:
 
 ```javascript
-import { executeWMexQuery } from 'bmbtech-baileys';
+import { executeWMexQuery } from 'bmbxmd-baileys';
 
 const result = await executeWMexQuery(
  { userId: '254712345678' }, // variables
@@ -646,7 +645,7 @@ await sock.sendMessage(jid, { image: fs.readFileSync('./img.jpg'), viewOnce: tru
 // Copy button
 await sock.sendMessage(jid, {
  interactiveMessage: {
- header: 'bmbtech-baileys™',
+ header: 'bmbxmd-baileys™',
  title: 'Hello World',
  footer: 'By bmbtech ',
  buttons: [
@@ -662,7 +661,7 @@ await sock.sendMessage(jid, {
 await sock.sendMessage(jid, {
  interactiveMessage: {
  header: 'Visit Us',
- title: 'bmbtech-baileys',
+ title: 'bmbxmd-baileys',
  footer: 'GitHub',
  buttons: [
  {
@@ -677,7 +676,7 @@ await sock.sendMessage(jid, {
 await sock.sendMessage(jid, {
  interactiveMessage: {
  header: 'With Image',
- title: 'bmbtech-baileys™',
+ title: 'bmbxmd-baileys™',
  footer: 'Best Baileys Fork',
  image: { url: 'https://example.com/image.jpg' },
  buttons: [
@@ -718,10 +717,10 @@ await sock.sendMessage(jid, {
 await sock.sendMessage(jid, {
  interactiveMessage: {
  header: 'Premium',
- title: 'bmbtech-baileys™',
+ title: 'bmbxmd-baileys™',
  footer: 'By 255767862457',
  externalAdReply: {
- title: 'bmbtech-baileys',
+ title: 'bmbxmd-baileys',
  body: 'Best WhatsApp Library',
  mediaType: 1,
  thumbnailUrl: 'https://example.com/thumb.jpg',
@@ -785,7 +784,7 @@ await sock.sendMessage(jid, {
 await sock.sendMessage(jid, {
  eventMessage: {
  isCanceled: false,
- name: 'bmbtech-baileys Launch',
+ name: 'bmbxmd-baileys Launch',
  description: 'Join us for the launch!',
  location: { degreesLatitude: -1.2921, degreesLongitude: 36.8219, name: 'Nairobi, Kenya' },
  joinLink: 'https://call.whatsapp.com/video/your-link',
@@ -807,7 +806,7 @@ await sock.sendMessage(jid, {
 await sock.sendMessage(jid, {
  poll: {
  name: 'Best WhatsApp library?',
- values: ['bmbtech-baileys', 'Baileys', 'Other'],
+ values: ['bmbxmd-baileys', 'Baileys', 'Other'],
  selectableCount: 1
  }
 });
@@ -817,7 +816,7 @@ await sock.sendMessage(jid, {
  pollResultMessage: {
  name: 'Best Library Results',
  pollVotes: [
- { optionName: 'bmbtech-baileys', optionVoteCount: '42' },
+ { optionName: 'bmbxmd-baileys', optionVoteCount: '42' },
  { optionName: 'Baileys', optionVoteCount: '10' },
  { optionName: 'Other', optionVoteCount: '2' }
  ]
@@ -922,7 +921,7 @@ await sock.sendMessage(jid, {
 // Classic buttons
 await sock.sendMessage(jid, {
  text: 'Choose:',
- footer: 'bmbtech-baileys™',
+ footer: 'bmbxmd-baileys™',
  buttons: [
  { buttonId: 'btn_1', buttonText: { displayText: 'Option 1' }, type: 1 },
  { buttonId: 'btn_2', buttonText: { displayText: 'Option 2' }, type: 1 }
@@ -933,7 +932,7 @@ await sock.sendMessage(jid, {
 // List message
 await sock.sendMessage(jid, {
  text: 'Pick one:',
- footer: 'bmbtech-baileys™',
+ footer: 'bmbxmd-baileys™',
  title: 'Menu',
  buttonText: 'Open List',
  sections: [
@@ -958,21 +957,21 @@ The `WABuilder` module ships as part of the package now — `Button`, `ButtonV2`
 Every class is also exported under a few shorter names, in case you'd rather import it as something else:
 
 ```javascript
-import { AIRich, RichMessage, Rich, RichMsg, RichAI } from 'bmbtech-baileys'; // all the same class
-import { Button, Buttons, Btns } from 'bmbtech-baileys'; // all the same class
-import { ButtonV2, ButtonsV2, BtnsV2, NewButtons } from 'bmbtech-baileys'; // all the same class
+import { AIRich, RichMessage, Rich, RichMsg, RichAI } from 'bmbxmd-baileys'; // all the same class
+import { Button, Buttons, Btns } from 'bmbxmd-baileys'; // all the same class
+import { ButtonV2, ButtonsV2, BtnsV2, NewButtons } from 'bmbxmd-baileys'; // all the same class
 ```
 
 <details>
 <summary>Button — media + button rows</summary>
 
 ```javascript
-import { Button } from 'bmbtech-baileys';
+import { Button } from 'bmbxmd-baileys';
 
 const btn = new Button(sock)
  .setTitle('Choose an option')
  .setBody('Pick one of the buttons below')
- .setFooter('Powered by bmbtech-baileys')
+ .setFooter('Powered by bmbxmd-baileys')
  .setImage('./banner.jpg')
  .addReply('Option A', 'opt_a')
  .addReply('Option B', 'opt_b')
@@ -986,7 +985,7 @@ await btn.send(jid);
 <summary>ButtonV2 — native interactive buttons</summary>
 
 ```javascript
-import { ButtonV2 } from 'bmbtech-baileys';
+import { ButtonV2 } from 'bmbxmd-baileys';
 
 const btn = new ButtonV2(sock)
  .setBody('Native button layout')
@@ -1000,7 +999,7 @@ await btn.send(jid);
 <summary>Carousel — swipeable cards</summary>
 
 ```javascript
-import { Carousel } from 'bmbtech-baileys';
+import { Carousel } from 'bmbxmd-baileys';
 
 const carousel = new Carousel(sock);
 // build cards via the card API, then:
@@ -1014,7 +1013,7 @@ await carousel.send(jid);
 Builds the same rich response format Meta AI uses in WhatsApp: text with inline citations/hyperlinks/LaTeX, code blocks, tables, and source lists, all rendered as one message.
 
 ```javascript
-import { AIRich } from 'bmbtech-baileys';
+import { AIRich } from 'bmbxmd-baileys';
 
 const reply = new AIRich(sock)
  .setTitle('Answer')
@@ -1088,7 +1087,7 @@ const all = await sock.groupFetchAllParticipating();
 await sock.updateProfilePicture(jid, { url: './avatar.jpg' });
 await sock.removeProfilePicture(jid);
 const pp = await sock.profilePictureUrl(jid, 'image');
-await sock.updateProfileStatus('Hey there! I am using bmbtech-baileys™');
+await sock.updateProfileStatus('Hey there! I am using bmbxmd-baileys™');
 await sock.updateProfileName('My Bot Name');
 await sock.fetchStatus(jid);
 const exists = await sock.onWhatsApp('254712345678@s.whatsapp.net');
@@ -1154,7 +1153,7 @@ const results2 = await sock.checkUsernameMulti(['name_one', 'name_two']);
 <summary>Fetch a username or text status via USync directly</summary>
 
 ```javascript
-import { USyncQuery, USyncUser } from 'bmbtech-baileys';
+import { USyncQuery, USyncUser } from 'bmbxmd-baileys';
 
 const query = new USyncQuery()
  .withUsernameProtocol()
@@ -1174,7 +1173,7 @@ console.log(result?.list[0]);
 <summary>Create, follow, manage newsletters and channels</summary>
 
 ```javascript
-import { newsletterId } from 'bmbtech-baileys';
+import { newsletterId } from 'bmbxmd-baileys';
 
 // Follow a channel
 await sock.newsletterFollow('1234567890@newsletter');
@@ -1234,7 +1233,7 @@ const blocked = await sock.fetchBlocklist();
 <summary>In-Memory Store (Development)</summary>
 
 ```javascript
-import makeWASocket, { makeInMemoryStore } from 'bmbtech-baileys';
+import makeWASocket, { makeInMemoryStore } from 'bmbxmd-baileys';
 
 const store = makeInMemoryStore({ logger: console });
 store.readFromFile('./baileys_store.json');
@@ -1278,7 +1277,7 @@ import {
  downloadContentFromMessage, getAggregateVotesInPollMessage,
  extractMessageContent, normalizeMessageContent, newsletterId,
  proto
-} from 'bmbtech-baileys';
+} from 'bmbxmd-baileys';
 
 const type = getContentType(m.message);
 console.log(isJidGroup('123@g.us')); // true
@@ -1427,13 +1426,13 @@ This project is **NOT** affiliated with, authorized, maintained, sponsored, or e
 
 MIT License. See [LICENSE](LICENSE) for details.
 
-**Credits:** Original Baileys by [WhiskeySockets](https://github.com/WhiskeySockets/Baileys) · bmbtech-baileys enhancements by **bmbtech **
+**Credits:** Original Baileys by [WhiskeySockets](https://github.com/WhiskeySockets/Baileys) · bmbxmd-baileys enhancements by **bmbtech **
 
 ---
 
 <div align="center">
 
- **bmbtech-baileys™** — Crafted with by **bmbtech **
+ **bmbxmd-baileys™** — Crafted with by **bmbtech **
 
 *The most powerful WhatsApp automation toolkit*
 
