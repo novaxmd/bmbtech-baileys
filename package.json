@@ -1,7 +1,7 @@
 {
   "name": "bmbtech-baileys",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "WhatsApp API Enhancement \u2014 fork of Baileys, maintained by novaxmd",
   "keywords": [
     "whatsapp",
